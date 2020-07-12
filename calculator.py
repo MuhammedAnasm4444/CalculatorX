@@ -230,11 +230,12 @@ def division_operation():
 
 # when '%' button clicked
 def percentage_operation():
-        global value
         global is_clicked
         is_clicked = True
-        value.append(label_value.get())
-        value.append('%')
+        global percentage_operator
+        percentage_operator = True
+        global old_value
+        old_value = label_value.get()
 
 
 # when '√' button clicked
@@ -395,46 +396,25 @@ def equal_click():
                       print(value)
                       value.insert(0,xmultiply)
                   elif value[1] == '/':
-
-                    try:
-
-                        xdivision = float(value[0]) / float(value[2])
-                        xdivision = str(xdivision)
-                        value.pop(0)
-                        value.pop(0)
-                        value.pop(0)
-                        print(value)
-                        value.insert(0,xdivision)
-                        print(value)
-                    except Exception:
-                        label_value.set("not defined")
-                        global division_error
-                        division_error = True
-
-                    value.pop(0)
-                    value.pop(0)
-                    value.pop(0)
-                    print(value)
-                    value.insert(0,xdivision)
-                    print(value)
-                  elif value[1] == '%':
-                      xpercentage = 100 * float(value[0])/float(value[2])
-
+                      xdivision = float(value[0]) / float(value[2])
+                      xdivision = str(xdivision)
+                      value.pop(0)
+                      value.pop(0)
+                      value.pop(0)
+                      print(value)
+                      value.insert(0,xdivision)
+                      print(value)
                 except Exception:
             
                     break
 
 
-        if division_error == True:
-            print("division problem")
-        else:
 
-
-            equal_clicked = True
-            print(value)
-            result = value[0]
-            label_value.set(result)
-            print(result)
+        equal_clicked = True
+        print(value)
+        result = value[0]
+        label_value.set(result)
+        print(result)
 
 
         # Operating square root
