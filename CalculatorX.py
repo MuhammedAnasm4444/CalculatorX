@@ -23,6 +23,7 @@ value = []
 arbitary_sum_operator = False
 arbitary_minus_operator = False
 equal_clicked = False
+division_error = False
 
 
 #window for Calculator
@@ -336,14 +337,12 @@ def equal_click():
         global cos_inverse_operator
         global tan_inverse_operator
         global equal_clicked
+        global division_error
+
+        
         value.append(label_value.get())
 
-        equal_clicked = True
-        print(value)
-        result = value[0]
-        label_value.set(result)
-        print(result)
-    
+       
 
         print(value)
     # operating addition, subtraction, multiplication and division
@@ -408,7 +407,7 @@ def equal_click():
                         print(value)
                     except Exception:
                         label_value.set("not defined")
-                        global division_error
+                    
                         division_error = True
 
                     value.pop(0)
@@ -423,7 +422,6 @@ def equal_click():
                 except Exception:
             
                     break
-
 
         if division_error == True:
             print("division problem")
